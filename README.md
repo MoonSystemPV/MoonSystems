@@ -1,48 +1,110 @@
-# Astro Starter Kit: Basics
+# MoonSystems - Soluciones Digitales Innovadoras
 
-```sh
-npm create astro@latest -- --template basics
-```
+![MoonSystems Logo](/public/images/Logo.jpg)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🚀 Descripción del Proyecto
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+MoonSystems es una plataforma web moderna y elegante para una empresa de desarrollo de software que ofrece soluciones digitales innovadoras para empresas. El sitio web está diseñado con un hermoso efecto de estrellas en movimiento que crea una experiencia inmersiva para los usuarios, reflejando el nombre de la empresa.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### ✨ Características Principales
 
-## 🚀 Project Structure
+- **Diseño Responsivo**: Adaptado perfectamente a dispositivos móviles, tablets y escritorio
+- **Fondo Animado de Estrellas**: Animación de estrellas en movimiento con efecto parallax
+- **Secciones Completas**: Incluye Hero, Servicios, Proyectos, Testimonios, Fundadores, FAQ y Contacto
+- **Modo Oscuro/Claro**: Soporte para preferencias de tema del usuario
+- **Animaciones de Scroll**: Elementos que se animan al hacer scroll
+- **Formulario de Contacto**: Formulario completo para que los clientes se pongan en contacto
+- **Optimizado para SEO**: Metadatos adecuados y estructura semántica
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛠️ Tecnologías Utilizadas
+
+- [Astro](https://astro.build/) - Framework web para sitios estáticos de alto rendimiento
+- [TailwindCSS](https://tailwindcss.com/) - Framework CSS utilitario
+- [TypeScript](https://www.typescriptlang.org/) - Para una experiencia de desarrollo robusta
+- [React](https://react.dev/) - Para componentes interactivos (cuando se necesitan)
+
+## 📁 Estructura del Proyecto
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/               # Archivos estáticos
+│   ├── images/           # Imágenes del sitio
+│   │   └── Logo.jpg      # Logo de MoonSystems
+│   └── favicon/          # Favicons
 ├── src/
+│   ├── components/       # Componentes reutilizables
+│   │   ├── Header.astro  # Barra de navegación
+│   │   ├── Hero.astro    # Sección principal
+│   │   ├── Services.astro # Servicios ofrecidos
+│   │   ├── Projects.astro # Proyectos destacados
+│   │   ├── Testimonials.astro # Testimonios de clientes
+│   │   ├── Founders.astro # Información sobre fundadores
+│   │   ├── Faq.astro     # Preguntas frecuentes
+│   │   ├── Contact.astro # Formulario de contacto
+│   │   └── Footer.astro  # Pie de página
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   │   └── Layout.astro  # Plantilla principal con el fondo estrellado
+│   ├── pages/
+│   │   └── index.astro   # Página principal
+│   └── styles/
+│       └── global.css    # Estilos globales y configuración de TailwindCSS
+└── package.json          # Dependencias y scripts
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Cómo Empezar
 
-## 🧞 Commands
+### Prerrequisitos
 
-All commands are run from the root of the project, from a terminal:
+- Node.js 18 o superior
+- npm o yarn
 
-| Command                   | Action                                           |
+### Instalación
+
+1. Clona el repositorio
+   ```sh
+   git clone https://github.com/tu-usuario/moonsystems.git
+   cd moonsystems
+   ```
+
+2. Instala las dependencias
+   ```sh
+   npm install
+   ```
+
+3. Inicia el servidor de desarrollo
+   ```sh
+   npm run dev
+   ```
+
+4. Abre [http://localhost:4321](http://localhost:4321) en tu navegador
+
+## 🧞 Comandos Disponibles
+
+| Comando                   | Acción                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm install`             | Instala dependencias                             |
+| `npm run dev`             | Inicia servidor local en `localhost:4321`        |
+| `npm run build`           | Construye el sitio para producción en `./dist/`  |
+| `npm run preview`         | Previsualiza la build localmente                 |
 
-## 👀 Want to learn more?
+## 🌟 Características del Fondo Estrellado
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+El sitio cuenta con un impresionante fondo de estrellas en movimiento que crea una experiencia inmersiva:
+
+- **Efecto Parallax**: Múltiples capas de estrellas moviéndose a diferentes velocidades
+- **Estrellas Fugaces**: Animación ocasional de estrellas fugaces
+- **Optimizado para Rendimiento**: Implementado con CSS y JavaScript optimizados
+- **Responsive**: Se adapta a cualquier tamaño de pantalla
+
+## 👥 Desarrolladores
+
+- **Lucas Viveros** - CEO & Co-Fundador
+- **Ignacio Perez** - CTO & Co-Fundador
+
+## 📝 Licencia
+
+Este proyecto está bajo licencia privada. Todos los derechos reservados para MoonSystems.
+
+---
+
+Desarrollado con ❤️ por MoonSystems - Transformando ideas en soluciones digitales excepcionales.
