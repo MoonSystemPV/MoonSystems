@@ -18,51 +18,110 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/jpg" href="/images/Logo.jpg" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-		<title>{title}</title>
+		<title>MoonSystems</title>
 		<style>
-			#bg-video {
-				position: fixed;
-				right: 0;
-				bottom: 0;
-				min-width: 100%;
-				min-height: 100%;
-				width: auto;
-				height: auto;
-				z-index: -1000;
-				background-size: cover;
-				object-fit: cover;
-				object-position: center;
-				max-width: none;
-				max-height: none;
-				quality: high;
-			}
-			
-			.video-overlay {
+			/* High quality starfield background with falling stars effect */
+			.starfield {
 				position: fixed;
 				top: 0;
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: rgba(0, 0, 0, 0.35);
-				z-index: -900;
+				background-color: #000;
+				z-index: -1000;
+				overflow: hidden;
 			}
-			
+
 			.content-container {
 				position: relative;
 				z-index: 1;
 			}
+			
+			/* Star falling animation with different speeds */
+			@keyframes fallingStar1 {
+				from { transform: translateY(-5%); }
+				to { transform: translateY(105%); }
+			}
+			
+			@keyframes fallingStar2 {
+				from { transform: translateY(-10%); }
+				to { transform: translateY(105%); }
+			}
+			
+			@keyframes fallingStar3 {
+				from { transform: translateY(-15%); }
+				to { transform: translateY(105%); }
+			}
+			
+			@keyframes fallingStar4 {
+				from { transform: translateY(-10%); }
+				to { transform: translateY(105%); }
+			}
+			
+			/* Parallax layers for stars - All stars move now */
+			.stars-layer1, .stars-layer2, .stars-layer3, .stars-layer4, .stars-layer5 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 150%; /* Extra height for animation and coverage */
+				will-change: transform;
+			}
+			
+			.stars-layer1 {
+				animation: fallingStar1 80s linear infinite;
+			}
+			
+			.stars-layer2 {
+				animation: fallingStar2 60s linear infinite;
+			}
+			
+			.stars-layer3 {
+				animation: fallingStar3 40s linear infinite;
+			}
+			
+			.stars-layer4 {
+				animation: fallingStar4 50s linear infinite;
+			}
+			
+			.stars-layer5 {
+				animation: fallingStar2 70s linear infinite;
+			}
+			
+			/* Shooting stars effect */
+			.shooting-star {
+				position: absolute;
+				height: 2px;
+				background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+				animation: shoot 8s linear infinite;
+				opacity: 0;
+			}
+			
+			@keyframes shoot {
+				0% { transform: translateY(-100px) rotate(65deg); opacity: 0; }
+				5% { opacity: 1; }
+				10% { transform: translateY(300px) rotate(65deg); opacity: 0; }
+				100% { opacity: 0; }
+			}
 		</style>
 	</head>
 	<body>
-		<video id="bg-video" autoplay muted loop playsinline preload="auto">
-			<source src="/Videos/Fondo.mp4" type="video/mp4">
-		</video>
-		<div class="video-overlay"></div>
+		<div class="starfield">
+			<!-- All layers are moving stars now -->
+			<div class="stars-layer1" id="starsLayer1"></div>
+			<div class="stars-layer2" id="starsLayer2"></div>
+			<div class="stars-layer3" id="starsLayer3"></div>
+			<div class="stars-layer4" id="starsLayer4"></div>
+			<div class="stars-layer5" id="starsLayer5"></div>
+			
+			<!-- Container for occasional shooting stars -->
+			<div class="more-stars" id="shootingStars"></div>
+		</div>
 		
 		<div class="content-container font-inter text-slate-900 dark:text-white">
 			<slot />
@@ -83,12 +142,86 @@ const {
 				
 				animatedElements.forEach(el => observer.observe(el));
 				
-				// Force video to play
-				const videoElement = document.getElementById('bg-video');
-				if (videoElement instanceof HTMLVideoElement) {
-					videoElement.play();
-				}
+				// Create more stars on all layers - all stars moving
+				createStarsLayer(document.getElementById('starsLayer1'), 250, 0.3, 1.2);
+				createStarsLayer(document.getElementById('starsLayer2'), 300, 0.4, 1.5);
+				createStarsLayer(document.getElementById('starsLayer3'), 200, 0.6, 2);
+				createStarsLayer(document.getElementById('starsLayer4'), 250, 0.5, 1.8);
+				createStarsLayer(document.getElementById('starsLayer5'), 300, 0.4, 1.3);
+				createShootingStars();
+				
+				// Create more shooting stars on interval to ensure continual activity
+				setInterval(() => {
+					const container = document.getElementById('shootingStars');
+					if (container) {
+						createRandomShootingStar(container);
+					}
+				}, 2000); // New shooting star every 2 seconds
 			});
+			
+			function createStarsLayer(container: HTMLElement | null, count: number, minOpacity: number, maxSize: number) {
+				if (!container) return;
+				
+				// More stars to ensure the sky is always full
+				for (let i = 0; i < count; i++) {
+					const star = document.createElement('div');
+					const size = Math.random() * maxSize + 0.5;
+					const opacity = Math.random() * (1 - minOpacity) + minOpacity;
+					
+					star.style.position = 'absolute';
+					star.style.width = `${size}px`;
+					star.style.height = `${size}px`;
+					star.style.backgroundColor = 'white';
+					star.style.borderRadius = '50%';
+					star.style.left = `${Math.random() * 100}%`;
+					// Distribute stars evenly through the container height
+					star.style.top = `${Math.random() * 100}%`;
+					star.style.opacity = `${opacity}`;
+					
+					// Add glow effect to more stars
+					if (Math.random() > 0.7) {
+						star.style.boxShadow = '0 0 3px 1px rgba(255, 255, 255, 0.5)';
+					}
+					
+					container.appendChild(star);
+				}
+			}
+			
+			function createShootingStars() {
+				const container = document.getElementById('shootingStars');
+				if (!container) return;
+				
+				// More shooting stars with varying delays
+				for (let i = 0; i < 30; i++) {
+					const star = document.createElement('div');
+					const width = Math.random() * 70 + 50; // 50-120px length
+					
+					star.classList.add('shooting-star');
+					star.style.width = `${width}px`;
+					star.style.left = `${Math.random() * 100}%`;
+					star.style.top = `${Math.random() * 70}%`;
+					star.style.animationDelay = `${Math.random() * 20}s`; // Random delay for each star
+					
+					container.appendChild(star);
+				}
+			}
+			
+			function createRandomShootingStar(container: HTMLElement) {
+				const star = document.createElement('div');
+				const width = Math.random() * 70 + 50;
+				
+				star.classList.add('shooting-star');
+				star.style.width = `${width}px`;
+				star.style.left = `${Math.random() * 100}%`;
+				star.style.top = `${Math.random() * 70}%`;
+				
+				// Set a timeout to remove the star after animation
+				setTimeout(() => {
+					container.removeChild(star);
+				}, 8000);
+				
+				container.appendChild(star);
+			}
 		</script>
 	</body>
 </html>
