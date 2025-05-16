@@ -1,0 +1,72 @@
+<section class="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+  <div class="container relative">
+    <!-- Background gradient effects -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary-300/20 dark:bg-primary-800/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-300/20 dark:bg-indigo-800/20 rounded-full blur-3xl"></div>
+    
+    <div class="grid md:grid-cols-2 gap-12 md:gap-8 items-center">
+      <!-- Text content -->
+      <div class="order-2 md:order-1" data-animate="fade-right">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          Soluciones digitales
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600 dark:from-primary-400 dark:to-indigo-400">
+            innovadoras
+          </span>
+          para tu empresa
+        </h1>
+        <p class="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-8">
+          Descubre nuestros sistemas web y aplicaciones personalizados diseñados para optimizar tus operaciones y potenciar tu crecimiento.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#servicios" class="btn btn-primary">
+            Iniciar ahora
+          </a>
+          <a href="#contacto" class="btn btn-secondary">
+            Contactar
+          </a>
+        </div>
+      </div>
+      
+      <!-- Image with animation -->
+      <div class="order-1 md:order-2 relative" data-animate="fade-left">
+        <!-- Floating elements animation -->
+        <div class="hidden md:block absolute z-10 top-4 right-20 w-12 h-12 bg-primary-500 rounded-lg animate-float delay-200"></div>
+        <div class="hidden md:block absolute z-10 bottom-12 left-4 w-8 h-8 bg-indigo-500 rounded-full animate-float delay-300"></div>
+        <div class="hidden md:block absolute z-10 bottom-24 right-8 w-16 h-16 border-4 border-yellow-500 rounded-lg animate-float delay-100 opacity-40"></div>
+         
+        <!-- Main image with dashboard mockup -->
+        <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl rotate-1 hover:rotate-0 transition-transform duration-300">
+          <img 
+            src="/images/dashboard-mockup.webp" 
+            alt="Dashboard interactivo" 
+            class="rounded-xl w-full h-auto"
+            onload="this.src = 'data:image/svg+xml;charset=utf-8,%3Csvg width=\'600\' height=\'400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%23CCCCCC\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'24px\' fill=\'%23666666\'%3EMockup Dashboard%3C/text%3E%3C/svg%3E'"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="hidden md:flex justify-center mt-16">
+      <a 
+        href="#servicios" 
+        class="animate-bounce flex flex-col items-center text-sm text-slate-500 dark:text-slate-400"
+      >
+        <span class="mb-2">Descubre más</span>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          class="h-5 w-5" 
+          viewBox="0 0 20 20" 
+          fill="currentColor"
+        >
+          <path 
+            fill-rule="evenodd" 
+            d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" 
+            clip-rule="evenodd" 
+            transform="rotate(180, 10, 10)"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section> 

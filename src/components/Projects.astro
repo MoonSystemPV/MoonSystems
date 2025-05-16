@@ -1,0 +1,77 @@
+---
+const PROJECTS = [
+  {
+    title: "Dashboard Analítico",
+    description: "Plataforma centralizada para visualización de datos y métricas empresariales en tiempo real.",
+    image: "/images/dashboard-mockup.webp",
+    tags: ["React", "TypeScript", "GraphQL"]
+  },
+  {
+    title: "E-commerce Premium",
+    description: "Tienda online con experiencia de usuario optimizada y sistema de pagos integrado.",
+    image: "/images/ecommerce-mockup.webp",
+    tags: ["Next.js", "Stripe", "Tailwind CSS"]
+  },
+  {
+    title: "App de Gestión Móvil",
+    description: "Aplicación para seguimiento de proyectos y tareas con sincronización en la nube.",
+    image: "/images/app-mockup.webp",
+    tags: ["React Native", "Firebase", "Redux"]
+  },
+  {
+    title: "Sistema CRM Personalizado",
+    description: "Herramienta para gestión de relaciones con clientes adaptada a flujos de trabajo específicos.",
+    image: "/images/crm-mockup.webp",
+    tags: ["Vue.js", "Node.js", "MongoDB"]
+  }
+];
+---
+
+<section id="proyectos" class="section">
+  <div class="container">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Nuestros <span class="text-primary-600 dark:text-primary-400">proyectos destacados</span>
+      </h2>
+      <p class="text-lg text-slate-700 dark:text-slate-300">
+        Conoce nuestros casos de éxito y cómo hemos ayudado a diversas empresas a alcanzar sus objetivos digitales.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {PROJECTS.map((project, index) => (
+        <div 
+          class="group bg-white dark:bg-slate-800 overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all border border-slate-100 dark:border-slate-700"
+          data-animate={index % 2 === 0 ? "fade-right" : "fade-left"}
+        >
+          <div class="relative overflow-hidden aspect-[16/9]">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              onload={`this.src = 'data:image/svg+xml;charset=utf-8,%3Csvg width=\\'600\\' height=\\'338\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Crect width=\\'600\\' height=\\'338\\' fill=\\'%23CCCCCC\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' font-family=\\'sans-serif\\' font-size=\\'24px\\' fill=\\'%23666666\\'%3E${project.title}%3C/text%3E%3C/svg%3E'`}
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">{project.title}</h3>
+            <p class="text-slate-600 dark:text-slate-400 mb-4">{project.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {project.tags.map(tag => (
+                <span class="px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center" data-animate>
+      <a href="#contacto" class="btn btn-primary">
+        Hablemos de tu proyecto
+      </a>
+    </div>
+  </div>
+</section> 

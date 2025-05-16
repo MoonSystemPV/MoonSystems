@@ -1,0 +1,62 @@
+---
+const FAQS = [
+  {
+    question: "¿Qué servicios están disponibles?",
+    answer: "Ofrecemos desarrollo web, aplicaciones móviles, e-commerce, sistemas a medida, implementación de IA y consultoría tecnológica. Cada servicio está diseñado para satisfacer las necesidades específicas de tu empresa y optimizar tus operaciones digitales."
+  },
+  {
+    question: "¿Cómo implemento vuestras soluciones?",
+    answer: "Nuestro proceso comienza con una consulta detallada para entender tus necesidades. Luego desarrollamos un plan personalizado, implementamos la solución y proporcionamos capacitación completa y soporte continuo para garantizar una transición sin problemas."
+  },
+  {
+    question: "¿Qué tecnologías se utilizan?",
+    answer: "Trabajamos con las últimas tecnologías incluyendo React, Angular, Vue.js, Node.js, Python, AWS, Azure, y más. Seleccionamos la stack tecnológica más adecuada para cada proyecto según sus requisitos específicos y objetivos a largo plazo."
+  },
+  {
+    question: "¿Cómo puedo comenzar?",
+    answer: "Simplemente contacta con nosotros a través del formulario en nuestra web o por correo electrónico. Programaremos una consulta inicial gratuita para discutir tu proyecto, entender tus necesidades y establecer los próximos pasos para una colaboración exitosa."
+  }
+];
+---
+
+<section id="faq" class="section bg-slate-50 dark:bg-slate-900">
+  <div class="container">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Preguntas <span class="text-primary-600 dark:text-primary-400">frecuentes</span>
+      </h2>
+      <p class="text-lg text-slate-700 dark:text-slate-300">
+        Resolvemos tus dudas sobre nuestros servicios y cómo podemos ayudarte a transformar tu negocio digitalmente.
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto" data-animate>
+      {FAQS.map((faq, index) => (
+        <div class="mb-4 last:mb-0 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 overflow-hidden">
+          <details class="group">
+            <summary class="flex justify-between items-center p-5 cursor-pointer">
+              <h3 class="text-lg font-semibold">{faq.question}</h3>
+              <span class="ml-6 flex-shrink-0 text-slate-500 group-open:rotate-180 transition-transform duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <div class="p-5 pt-0 text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12" data-animate>
+      <p class="text-lg text-slate-700 dark:text-slate-300 mb-6">
+        ¿No encuentras respuesta a tu pregunta?
+      </p>
+      <a href="#contacto" class="btn btn-primary">
+        Contáctanos
+      </a>
+    </div>
+  </div>
+</section> 

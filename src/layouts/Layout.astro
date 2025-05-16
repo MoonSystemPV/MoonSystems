@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { 
+	title, 
+	description = "MoonSystems - Innovative digital solutions for your enterprise" 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<title>{title}</title>
+	</head>
+	<body class="font-inter bg-white dark:bg-slate-950 text-slate-900 dark:text-white">
+		<slot />
+		<script>
+			// Animation on scroll functionality
+			document.addEventListener('DOMContentLoaded', () => {
+				const animatedElements = document.querySelectorAll('[data-animate]');
+				
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('animate-in');
+						}
+					});
+				}, { threshold: 0.1 });
+				
+				animatedElements.forEach(el => observer.observe(el));
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

@@ -1,0 +1,119 @@
+---
+const SERVICES = [
+  {
+    title: "Desarrollo Web",
+    description: "Sitios web y aplicaciones personalizadas con diseños modernos y experiencias de usuario excepcionales.",
+    icon: "globe",
+  },
+  {
+    title: "Aplicaciones Móviles",
+    description: "Apps nativas e híbridas para iOS y Android que potencian tu presencia en dispositivos móviles.",
+    icon: "smartphone",
+  },
+  {
+    title: "E-commerce",
+    description: "Plataformas de comercio electrónico robustas y escalables para impulsar tus ventas en línea.",
+    icon: "shopping-cart",
+  },
+  {
+    title: "Sistemas a Medida",
+    description: "Software personalizado que automatiza y optimiza los procesos específicos de tu negocio.",
+    icon: "settings",
+  },
+  {
+    title: "Inteligencia Artificial",
+    description: "Implementación de soluciones IA para analítica avanzada, automatización y mejora de decisiones.",
+    icon: "cpu",
+  },
+  {
+    title: "Consultoría Tecnológica",
+    description: "Asesoramiento experto para potenciar tu estrategia digital y maximizar el ROI tecnológico.",
+    icon: "clipboard",
+  },
+];
+
+type IconKey = "globe" | "smartphone" | "shopping-cart" | "settings" | "cpu" | "clipboard";
+
+interface Service {
+  title: string;
+  description: string;
+  icon: IconKey;
+}
+
+const typedServices: Service[] = SERVICES as Service[];
+---
+
+<section id="servicios" class="section bg-slate-50 dark:bg-slate-900">
+  <div class="container">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Impulsando tu negocio con
+        <span class="text-primary-600 dark:text-primary-400">tecnología de vanguardia</span>
+      </h2>
+      <p class="text-lg text-slate-700 dark:text-slate-300">
+        Nuestros servicios están diseñados para transformar tu visión en soluciones digitales efectivas que impulsan el crecimiento y la eficiencia.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {typedServices.map((service, index) => (
+        <div 
+          class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-700"
+          data-animate
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <div class="text-primary-500 dark:text-primary-400 mb-4">
+            {service.icon === "globe" && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            )}
+            {service.icon === "smartphone" && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            )}
+            {service.icon === "shopping-cart" && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+            )}
+            {service.icon === "settings" && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            )}
+            {service.icon === "cpu" && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+              </svg>
+            )}
+            {service.icon === "clipboard" && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            )}
+          </div>
+          <h3 class="text-xl font-semibold mb-3">{service.title}</h3>
+          <p class="text-slate-600 dark:text-slate-400">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 
