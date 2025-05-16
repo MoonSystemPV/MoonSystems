@@ -24,9 +24,50 @@ const {
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 		<title>{title}</title>
+		<style>
+			#bg-video {
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				min-width: 100%;
+				min-height: 100%;
+				width: auto;
+				height: auto;
+				z-index: -1000;
+				background-size: cover;
+				object-fit: cover;
+				object-position: center;
+				max-width: none;
+				max-height: none;
+				quality: high;
+			}
+			
+			.video-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.35);
+				z-index: -900;
+			}
+			
+			.content-container {
+				position: relative;
+				z-index: 1;
+			}
+		</style>
 	</head>
-	<body class="font-inter bg-white dark:bg-slate-950 text-slate-900 dark:text-white">
-		<slot />
+	<body>
+		<video id="bg-video" autoplay muted loop playsinline preload="auto">
+			<source src="/Videos/Fondo.mp4" type="video/mp4">
+		</video>
+		<div class="video-overlay"></div>
+		
+		<div class="content-container font-inter text-slate-900 dark:text-white">
+			<slot />
+		</div>
+		
 		<script>
 			// Animation on scroll functionality
 			document.addEventListener('DOMContentLoaded', () => {
@@ -41,16 +82,13 @@ const {
 				}, { threshold: 0.1 });
 				
 				animatedElements.forEach(el => observer.observe(el));
+				
+				// Force video to play
+				const videoElement = document.getElementById('bg-video');
+				if (videoElement instanceof HTMLVideoElement) {
+					videoElement.play();
+				}
 			});
 		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
