@@ -35,6 +35,11 @@ const {
 				height: auto;
 				z-index: -1000;
 				background-size: cover;
+				object-fit: cover;
+				object-position: center;
+				max-width: none;
+				max-height: none;
+				quality: high;
 			}
 			
 			.video-overlay {
@@ -54,7 +59,7 @@ const {
 		</style>
 	</head>
 	<body>
-		<video id="bg-video" autoplay muted loop>
+		<video id="bg-video" autoplay muted loop playsinline preload="auto">
 			<source src="/Videos/Fondo.mp4" type="video/mp4">
 		</video>
 		<div class="video-overlay"></div>
