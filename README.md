@@ -103,7 +103,7 @@ El sitio cuenta con un impresionante fondo de estrellas en movimiento que crea u
 
 ## 📝 Licencia
 
-Este proyecto está bajo licencia privada. Todos los derechos reservados para MoonSystems.
+Este proyecto está bajo licencia privada. Todos los derechos reservados para MoonSystems..
 
 ---
 
