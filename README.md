@@ -10,7 +10,7 @@ MoonSystems es una plataforma web moderna y elegante para una empresa de desarro
 
 - **Diseño Responsivo**: Adaptado perfectamente a dispositivos móviles, tablets y escritorio
 - **Fondo Animado de Estrellas**: Animación de estrellas en movimiento con efecto parallax
-- **Secciones Completas**: Incluye Hero, Servicios, Proyectos, Testimonios, Fundadores, FAQ y Contacto
+- **Secciones Completas**: Incluye Hero, Servicios, Proyectos, Precios, Fundadores, FAQ y Contacto
 - **Modo Oscuro/Claro**: Soporte para preferencias de tema del usuario
 - **Animaciones de Scroll**: Elementos que se animan al hacer scroll
 - **Formulario de Contacto**: Formulario completo para que los clientes se pongan en contacto
@@ -37,7 +37,7 @@ MoonSystems es una plataforma web moderna y elegante para una empresa de desarro
 │   │   ├── Hero.astro    # Sección principal
 │   │   ├── Services.astro # Servicios ofrecidos
 │   │   ├── Projects.astro # Proyectos destacados
-│   │   ├── Testimonials.astro # Testimonios de clientes
+│   │   ├── Precios.astro # Precios ofrecidos
 │   │   ├── Founders.astro # Información sobre fundadores
 │   │   ├── Faq.astro     # Preguntas frecuentes
 │   │   ├── Contact.astro # Formulario de contacto
