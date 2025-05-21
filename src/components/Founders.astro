@@ -54,6 +54,7 @@ type SocialType = "instagram" | "linkedin" | "github";
 
     <!-- First row with founders -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
+
       {
         FOUNDERS.slice(0, 2).map((founder, index) => (
           <div
@@ -127,6 +128,7 @@ type SocialType = "instagram" | "linkedin" | "github";
                   </svg>
                 </a>
               </div>
+
             </div>
           </div>
         ))
@@ -135,6 +137,7 @@ type SocialType = "instagram" | "linkedin" | "github";
 
     <!-- Felipe centered below -->
     <div class="flex justify-center" data-animate="fade-up">
+
       <div
         class="flex flex-col sm:flex-row gap-6 items-center sm:items-start bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow max-w-2xl w-full"
       >
@@ -145,6 +148,7 @@ type SocialType = "instagram" | "linkedin" | "github";
             src={FOUNDERS[2].image}
             alt={FOUNDERS[2].name}
             class="w-full h-full object-cover rounded-lg"
+
           />
         </div>
 
