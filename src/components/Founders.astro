@@ -60,7 +60,9 @@ type SocialType = "instagram" | "linkedin" | "github";
             <img 
               src={founder.image} 
               alt={founder.name} 
-              class="w-full h-full object-cover rounded-lg"
+              class="w-full h-full object-cover object-center rounded-lg transform hover:scale-105 transition-transform duration-300"
+              loading="eager"
+              decoding="async"
             />
           </div>
           
@@ -116,7 +118,10 @@ type SocialType = "instagram" | "linkedin" | "github";
           <img 
             src={FOUNDERS[2].image} 
             alt={FOUNDERS[2].name} 
-            class="w-full h-full object-cover rounded-lg"
+            class="w-full h-full object-cover object-center rounded-lg transform hover:scale-105 transition-transform duration-300"
+            loading="eager"
+            decoding="async"
+            onerror="this.onerror=null; this.src='/images/placeholder.jpg';"
           />
         </div>
         
