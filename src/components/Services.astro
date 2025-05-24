@@ -4,43 +4,165 @@ const SERVICES = [
     title: "Desarrollo Web",
     description: "Sitios web y aplicaciones personalizadas con diseños modernos y experiencias de usuario excepcionales.",
     icon: "globe",
+    color: "blue",
+    details: {
+      pricing: [
+        { plan: "Básico", price: "Desde 1.500€", features: ["Diseño responsive", "5 páginas", "Formulario de contacto", "SEO básico"] },
+        { plan: "Profesional", price: "Desde 3.000€", features: ["Todo lo del plan Básico", "10 páginas", "Blog integrado", "Panel de administración", "SEO avanzado"] },
+        { plan: "Enterprise", price: "Personalizado", features: ["Solución completa a medida", "Funcionalidades personalizadas", "Integración con APIs", "Soporte 24/7"] }
+      ],
+      timeline: "2-8 semanas",
+      extras: ["Mantenimiento mensual", "Soporte técnico", "Capacitación", "Optimización SEO"]
+    }
   },
   {
     title: "Aplicaciones Móviles",
     description: "Apps nativas e híbridas para iOS y Android que potencian tu presencia en dispositivos móviles.",
     icon: "smartphone",
+    color: "purple",
+    details: {
+      pricing: [
+        { plan: "Básico", price: "Desde 3.000€", features: ["App híbrida", "Funcionalidades básicas", "Soporte 6 meses"] },
+        { plan: "Profesional", price: "Desde 6.000€", features: ["App nativa", "Funcionalidades avanzadas", "Integración con APIs", "Soporte 1 año"] },
+        { plan: "Enterprise", price: "Personalizado", features: ["Solución completa", "Funcionalidades premium", "Soporte 24/7", "Actualizaciones ilimitadas"] }
+      ],
+      timeline: "3-12 semanas",
+      extras: ["Mantenimiento", "Actualizaciones", "Soporte técnico", "Analíticas"]
+    }
   },
   {
     title: "E-commerce",
     description: "Plataformas de comercio electrónico robustas y escalables para impulsar tus ventas en línea.",
     icon: "shopping-cart",
+    color: "green",
+    details: {
+      pricing: [
+        { plan: "Básico", price: "Desde 2.500€", features: ["Tienda básica", "Hasta 100 productos", "Pasarela de pago", "Panel de administración"] },
+        { plan: "Profesional", price: "Desde 5.000€", features: ["Tienda avanzada", "Productos ilimitados", "Múltiples pasarelas", "Marketing tools"] },
+        { plan: "Enterprise", price: "Personalizado", features: ["Solución completa", "Funcionalidades premium", "Integración ERP", "Soporte dedicado"] }
+      ],
+      timeline: "4-12 semanas",
+      extras: ["Mantenimiento", "Soporte técnico", "Capacitación", "Optimización SEO"]
+    }
   },
   {
     title: "Sistemas a Medida",
     description: "Software personalizado que automatiza y optimiza los procesos específicos de tu negocio.",
     icon: "settings",
+    color: "orange",
+    details: {
+      pricing: [
+        { plan: "Básico", price: "Desde 5.000€", features: ["Sistema básico", "Funcionalidades esenciales", "Soporte 6 meses"] },
+        { plan: "Profesional", price: "Desde 10.000€", features: ["Sistema avanzado", "Integración con APIs", "Soporte 1 año"] },
+        { plan: "Enterprise", price: "Personalizado", features: ["Solución completa", "Funcionalidades premium", "Soporte 24/7"] }
+      ],
+      timeline: "8-24 semanas",
+      extras: ["Mantenimiento", "Actualizaciones", "Soporte técnico", "Capacitación"]
+    }
   },
   {
     title: "Inteligencia Artificial",
     description: "Implementación de soluciones IA para analítica avanzada, automatización y mejora de decisiones.",
     icon: "cpu",
+    color: "pink",
+    details: {
+      pricing: [
+        { plan: "Básico", price: "Desde 8.000€", features: ["Análisis básico", "Automatización simple", "Soporte 6 meses"] },
+        { plan: "Profesional", price: "Desde 15.000€", features: ["Análisis avanzado", "Automatización compleja", "Soporte 1 año"] },
+        { plan: "Enterprise", price: "Personalizado", features: ["Solución completa", "IA personalizada", "Soporte 24/7"] }
+      ],
+      timeline: "12-24 semanas",
+      extras: ["Mantenimiento", "Actualizaciones", "Soporte técnico", "Capacitación"]
+    }
   },
   {
     title: "Consultoría Tecnológica",
     description: "Asesoramiento experto para potenciar tu estrategia digital y maximizar el ROI tecnológico.",
     icon: "clipboard",
+    color: "teal",
+    details: {
+      pricing: [
+        { plan: "Básico", price: "Desde 1.000€", features: ["Análisis inicial", "Recomendaciones básicas", "Soporte 1 mes"] },
+        { plan: "Profesional", price: "Desde 2.500€", features: ["Análisis completo", "Plan estratégico", "Soporte 3 meses"] },
+        { plan: "Enterprise", price: "Personalizado", features: ["Solución completa", "Acompañamiento continuo", "Soporte dedicado"] }
+      ],
+      timeline: "2-12 semanas",
+      extras: ["Seguimiento", "Actualizaciones", "Soporte técnico", "Capacitación"]
+    }
   },
 ];
 
 type IconKey = "globe" | "smartphone" | "shopping-cart" | "settings" | "cpu" | "clipboard";
+type ColorKey = "blue" | "purple" | "green" | "orange" | "pink" | "teal";
 
 interface Service {
   title: string;
   description: string;
   icon: IconKey;
+  color: ColorKey;
+  details: {
+    pricing: Array<{
+      plan: string;
+      price: string;
+      features: string[];
+    }>;
+    timeline: string;
+    extras: string[];
+  };
 }
 
 const typedServices: Service[] = SERVICES as Service[];
+
+const colorClasses = {
+  blue: {
+    icon: "text-blue-500 dark:text-blue-400",
+    hover: "hover:border-blue-500 dark:hover:border-blue-400",
+    glow: "hover:shadow-blue-500/20",
+    text: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
+    bg: "bg-blue-50 dark:bg-blue-900/20",
+    selected: "border-blue-500 dark:border-blue-400 shadow-blue-500/20"
+  },
+  purple: {
+    icon: "text-purple-500 dark:text-purple-400",
+    hover: "hover:border-purple-500 dark:hover:border-purple-400",
+    glow: "hover:shadow-purple-500/20",
+    text: "group-hover:text-purple-600 dark:group-hover:text-purple-400",
+    bg: "bg-purple-50 dark:bg-purple-900/20",
+    selected: "border-purple-500 dark:border-purple-400 shadow-purple-500/20"
+  },
+  green: {
+    icon: "text-green-500 dark:text-green-400",
+    hover: "hover:border-green-500 dark:hover:border-green-400",
+    glow: "hover:shadow-green-500/20",
+    text: "group-hover:text-green-600 dark:group-hover:text-green-400",
+    bg: "bg-green-50 dark:bg-green-900/20",
+    selected: "border-green-500 dark:border-green-400 shadow-green-500/20"
+  },
+  orange: {
+    icon: "text-orange-500 dark:text-orange-400",
+    hover: "hover:border-orange-500 dark:hover:border-orange-400",
+    glow: "hover:shadow-orange-500/20",
+    text: "group-hover:text-orange-600 dark:group-hover:text-orange-400",
+    bg: "bg-orange-50 dark:bg-orange-900/20",
+    selected: "border-orange-500 dark:border-orange-400 shadow-orange-500/20"
+  },
+  pink: {
+    icon: "text-pink-500 dark:text-pink-400",
+    hover: "hover:border-pink-500 dark:hover:border-pink-400",
+    glow: "hover:shadow-pink-500/20",
+    text: "group-hover:text-pink-600 dark:group-hover:text-pink-400",
+    bg: "bg-pink-50 dark:bg-pink-900/20",
+    selected: "border-pink-500 dark:border-pink-400 shadow-pink-500/20"
+  },
+  teal: {
+    icon: "text-teal-500 dark:text-teal-400",
+    hover: "hover:border-teal-500 dark:hover:border-teal-400",
+    glow: "hover:shadow-teal-500/20",
+    text: "group-hover:text-teal-600 dark:group-hover:text-teal-400",
+    bg: "bg-teal-50 dark:bg-teal-900/20",
+    selected: "border-teal-500 dark:border-teal-400 shadow-teal-500/20"
+  }
+};
 ---
 
 <section id="servicios" class="section bg-slate-50 dark:bg-slate-900">
@@ -55,14 +177,15 @@ const typedServices: Service[] = SERVICES as Service[];
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
       {typedServices.map((service, index) => (
-        <div 
-          class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-700"
+        <div
+          class={`service-card group bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 ${colorClasses[service.color].hover} ${colorClasses[service.color].glow} hover:-translate-y-1 cursor-pointer`}
           data-animate
+          data-service-card
           style={`animation-delay: ${index * 100}ms`}
         >
-          <div class="text-primary-500 dark:text-primary-400 mb-4">
+          <div class={`${colorClasses[service.color].icon} mb-4 transform group-hover:scale-110 transition-transform duration-300`}>
             {service.icon === "globe" && (
               <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -110,10 +233,166 @@ const typedServices: Service[] = SERVICES as Service[];
               </svg>
             )}
           </div>
-          <h3 class="text-xl font-semibold mb-3">{service.title}</h3>
-          <p class="text-slate-600 dark:text-slate-400">{service.description}</p>
+          <h3 class={`text-xl font-semibold mb-3 ${colorClasses[service.color].text} transition-colors`}>{service.title}</h3>
+          <p class="text-slate-600 dark:text-slate-400 mb-4">{service.description}</p>
+          
+          <div class="service-details hidden mt-4 space-y-4">
+            <!-- Timeline -->
+            <div class="flex items-center text-sm text-slate-600 dark:text-slate-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class={`h-5 w-5 mr-2 ${colorClasses[service.color].icon}`} viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+              </svg>
+              Tiempo estimado: {service.details.timeline}
+            </div>
+
+            <!-- Pricing Plans -->
+            <div class="space-y-3">
+              {service.details.pricing.map(plan => (
+                <div class={`${colorClasses[service.color].bg} p-3 rounded-lg`}>
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium text-slate-800 dark:text-slate-200">{plan.plan}</span>
+                    <span class={`${colorClasses[service.color].text} font-semibold`}>{plan.price}</span>
+                  </div>
+                  <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+                    {plan.features.map(feature => (
+                      <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class={`h-4 w-4 mr-2 ${colorClasses[service.color].icon}`} viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <!-- Extras -->
+            <div>
+              <h4 class="font-medium text-slate-800 dark:text-slate-200 mb-2">Servicios adicionales:</h4>
+              <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+                {service.details.extras.map(extra => (
+                  <li class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class={`h-4 w-4 mr-2 ${colorClasses[service.color].icon}`} viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    {extra}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       ))}
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+  .service-card {
+    min-height: 180px;
+    transition: box-shadow 0.4s, border-color 0.4s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    height: auto;
+  }
+  .service-card.selected {
+    min-height: 180px;
+    height: auto;
+    z-index: 1;
+  }
+
+  /* Animaciones para los detalles */
+  .service-details {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+    display: block;
+    pointer-events: none;
+  }
+  .service-card.selected .service-details {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .service-details.hidden {
+    display: none;
+  }
+
+  /* Efecto de brillo al hover */
+  .group:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Transición suave para el ícono */
+  .group:hover .text-primary-500 {
+    transform: scale(1.1);
+  }
+
+  /* Efecto de selección SOLO para la tarjeta seleccionada */
+  .group.selected {
+    border-color: currentColor;
+    box-shadow: 0 0 20px currentColor;
+    z-index: 1;
+  }
+</style>
+
+<script>
+  // Manejar la selección de servicios
+  document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('[data-service-card]');
+    
+    serviceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const details = card.querySelector('.service-details');
+        const isCurrentlySelected = card.classList.contains('selected');
+
+        // Si ya está seleccionado, lo cerramos
+        if (isCurrentlySelected) {
+          card.classList.remove('selected');
+          details?.classList.remove('active');
+          details?.classList.add('hidden');
+          return;
+        }
+
+        // Remover la clase selected y ocultar detalles de todas las tarjetas
+        serviceCards.forEach(otherCard => {
+          otherCard.classList.remove('selected');
+          otherCard.querySelector('.service-details')?.classList.remove('active');
+          otherCard.querySelector('.service-details')?.classList.add('hidden');
+        });
+
+        // Seleccionar la tarjeta actual y mostrar detalles
+        card.classList.add('selected');
+        if (details) {
+          details.classList.remove('hidden');
+          details.classList.add('active');
+        }
+      });
+    });
+
+    // Scroll y autollenado al hacer clic en un plan o extra
+    document.querySelectorAll('.service-details .plan-contact, .service-details .extra-contact').forEach(el => {
+      el.addEventListener('click', function(this: HTMLElement, e: Event) {
+        e.stopPropagation();
+        const serviceCard = this.closest('[data-service-card]');
+        const serviceTitle = serviceCard?.querySelector('h3')?.textContent?.trim() ?? '';
+        const option = this.getAttribute('data-option');
+        // Scroll suave a la sección de contacto
+        const contactSection = document.getElementById('contacto');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Autollenar el campo Asunto
+        const subjectInput = document.getElementById('subject') as HTMLInputElement | null;
+        if (subjectInput) {
+          subjectInput.value = `${serviceTitle} - ${option}`;
+          subjectInput.focus();
+        }
+      });
+    });
+  });
+</script> 
