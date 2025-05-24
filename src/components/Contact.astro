@@ -97,7 +97,7 @@
         <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700">
           <h3 class="text-2xl font-bold mb-6">Envíanos un mensaje</h3>
           
-          <form id="contactForm" class="space-y-6">
+          <form class="space-y-6">
             <div>
               <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                 Nombre completo
@@ -161,42 +161,4 @@
       </div>
     </div>
   </div>
-</section>
-
-<script>
-  const form = document.getElementById('contactForm');
-  
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const formData = new FormData(form as HTMLFormElement);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        subject: formData.get('subject'),
-        message: formData.get('message')
-      };
-
-      try {
-        const response = await fetch('http://localhost:3001/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-          alert('¡Mensaje enviado con éxito!');
-          (form as HTMLFormElement).reset();
-        } else {
-          alert('Hubo un error al enviar el mensaje. Por favor, intente nuevamente.');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Hubo un error al enviar el mensaje. Por favor, intente nuevamente.');
-      }
-    });
-  }
-</script> 
+</section> 
