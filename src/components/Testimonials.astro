@@ -1,0 +1,72 @@
+---
+const TESTIMONIALS = [
+  {
+    name: "Jordan Rivera",
+    role: "CEO, TechVision",
+    content: "El equipo brindó un servicio excepcional, creando una plataforma personalizada que mejoró nuestros procesos y eficiencia.",
+    image: "/images/founders/testimonial-1.webp"
+  },
+  {
+    name: "Taylor Martínez",
+    role: "CTO, E-Market Solutions",
+    content: "Su experiencia en desarrollo full stack nos ayudó a lanzar un sistema de e-commerce robusto que superó nuestras expectativas.",
+    image: "/images/founders/testimonial-2.webp"
+  },
+  {
+    name: "Alex Gómez",
+    role: "Director de Innovación, DataViz",
+    content: "Nos impresionó su capacidad para integrar APIs complejas sin problemas, mejorando nuestras capacidades de visualización de datos.",
+    image: "/images/founders/testimonial-3.webp"
+  }
+];
+---
+
+<section id="testimonios" class="section bg-slate-50 dark:bg-slate-900 overflow-hidden">
+  <div class="container">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Lo que dicen <span class="text-primary-600 dark:text-primary-400">nuestros clientes</span>
+      </h2>
+      <p class="text-lg text-slate-700 dark:text-slate-300">
+        Nuestros clientes confían en nosotros para ofrecer soluciones digitales personalizadas que optimizan sus operaciones. Aquí están algunas de sus experiencias.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {TESTIMONIALS.map((testimonial, index) => (
+        <div 
+          class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md border border-slate-100 dark:border-slate-700 flex flex-col"
+          data-animate
+          style={`animation-delay: ${index * 150}ms`}
+        >
+          {/* Quote icon */}
+          <div class="mb-4 text-primary-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+              <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+            </svg>
+          </div>
+          
+          <p class="text-slate-600 dark:text-slate-400 flex-grow mb-4">
+            "{testimonial.content}"
+          </p>
+          
+          <div class="flex items-center mt-auto">
+            <div class="flex-shrink-0 mr-4">
+              <img 
+                src={testimonial.image} 
+                alt={testimonial.name}
+                class="w-12 h-12 rounded-full object-cover"
+                onload={`this.src = 'data:image/svg+xml;charset=utf-8,%3Csvg width=\\'48\\' height=\\'48\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Ccircle cx=\\'24\\' cy=\\'24\\' r=\\'24\\' fill=\\'%23CCCCCC\\'/%3E%3C/svg%3E'`}
+              />
+            </div>
+            <div>
+              <h4 class="font-semibold">{testimonial.name}</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">{testimonial.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

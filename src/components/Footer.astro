@@ -8,7 +8,7 @@ const FOOTER_LINKS = [
       { label: "Sobre nosotros", href: "#fundadores" },
       { label: "Servicios", href: "#servicios" },
       { label: "Proyectos", href: "#proyectos" },
-      { label: "Precios", href: "#precios" },
+      { label: "Testimonios", href: "#testimonios" },
       { label: "Contacto", href: "#contacto" }
     ]
   },
@@ -117,7 +117,26 @@ const SOCIAL_LINKS: SocialLink[] = [
         </div>
       ))}
       
-      
+      <!-- Newsletter -->
+      <div class="col-span-2 md:col-span-4">
+        <h3 class="font-semibold text-lg mb-4">Suscríbete al boletín</h3>
+        <p class="text-slate-400 mb-4">
+          Recibe las últimas noticias y actualizaciones sobre tecnología y nuestros servicios.
+        </p>
+        <form class="flex">
+          <input 
+            type="email" 
+            placeholder="Tu correo electrónico" 
+            class="flex-grow px-4 py-2 rounded-l-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
+          />
+          <button 
+            type="submit" 
+            class="bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-r-lg transition-colors"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
     </div>
     
     <hr class="border-slate-800 my-8" />
