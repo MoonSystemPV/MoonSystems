@@ -3,25 +3,24 @@ const PROJECTS = [
   {
     title: "Dashboard Analítico",
     description: "Plataforma centralizada para visualización de datos y métricas empresariales en tiempo real.",
-    image: "/images/dashboard-mockup.webp",
     tags: ["React", "TypeScript", "GraphQL"]
   },
   {
     title: "E-commerce Premium",
     description: "Tienda online con experiencia de usuario optimizada y sistema de pagos integrado.",
-    image: "/images/ecommerce-mockup.webp",
+    
     tags: ["Next.js", "Stripe", "Tailwind CSS"]
   },
   {
     title: "App de Gestión Móvil",
     description: "Aplicación para seguimiento de proyectos y tareas con sincronización en la nube.",
-    image: "/images/app-mockup.webp",
+    
     tags: ["React Native", "Firebase", "Redux"]
   },
   {
     title: "Sistema CRM Personalizado",
     description: "Herramienta para gestión de relaciones con clientes adaptada a flujos de trabajo específicos.",
-    image: "/images/crm-mockup.webp",
+   
     tags: ["Vue.js", "Node.js", "MongoDB"]
   }
 ];
@@ -46,7 +45,7 @@ const PROJECTS = [
         >
           <div class="relative overflow-hidden aspect-[16/9]">
             <img
-              src={project.image}
+              
               alt={project.title}
               class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
               onload={`this.src = 'data:image/svg+xml;charset=utf-8,%3Csvg width=\\'600\\' height=\\'338\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Crect width=\\'600\\' height=\\'338\\' fill=\\'%23CCCCCC\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' font-family=\\'sans-serif\\' font-size=\\'24px\\' fill=\\'%23666666\\'%3E${project.title}%3C/text%3E%3C/svg%3E'`}

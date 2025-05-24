@@ -12,10 +12,6 @@
     "@astrojs/react": "^4.2.7",
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.7.13",
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "nodemailer": "^7.0.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }
