@@ -346,9 +346,21 @@ const colorClasses = {
     const serviceCards = document.querySelectorAll('[data-service-card]');
     
     serviceCards.forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', function () {
         const details = card.querySelector('.service-details');
         const isCurrentlySelected = card.classList.contains('selected');
+        const serviceTitle = card.querySelector('h3')?.textContent?.trim() ?? '';
+
+        // Rellenar el formulario y hacer scroll al contacto
+        const contactSection = document.getElementById('contacto');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        const subjectInput = document.getElementById('subject') as HTMLInputElement | null;
+        if (subjectInput) {
+          subjectInput.value = serviceTitle;
+          subjectInput.focus();
+        }
 
         // Si ya está seleccionado, lo cerramos
         if (isCurrentlySelected) {
