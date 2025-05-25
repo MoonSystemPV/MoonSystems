@@ -98,18 +98,27 @@ export default function ContactForm() {
         </div>
         
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
-            Asunto
-          </label>
-          <input 
-            type="text" 
-            id="subject" 
-            name="subject" 
-            required 
-            disabled={isLoading}
-            className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors disabled:opacity-50"
-          />
-        </div>
+  <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+    Asunto
+  </label>
+  <select 
+    id="subject" 
+    name="subject" 
+    required 
+    disabled={isLoading}
+    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors disabled:opacity-50"
+  >
+    <option value="">Selecciona un asunto</option>
+    <option value="Consulta">Pagina web</option>
+    <option value="Soporte Técnico">aplicacion movil</option>
+    <option value="Feedback">E-Commerce</option>
+    <option value="Solicitud de Funcionalidad">Solicitud de Funcionalidad</option>
+    <option value="Problemas de Cuenta">Inteligencia artificial</option>
+    <option value="Consulta"> Consulta</option>
+    <option value="Otro">Otro</option>
+  </select>
+</div>
+
         
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
