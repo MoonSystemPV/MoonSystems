@@ -1,8 +1,20 @@
-import { useState } from "react";
+
+import { useState, useEffect } from 'react';
+
 
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedSubject, setSelectedSubject] = useState('');
+
+  useEffect(() => {
+    // Check if we have a subject in the URL
+    const params = new URLSearchParams(window.location.search);
+    const subject = params.get('subject');
+    if (subject) {
+      setSelectedSubject(subject);
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,12 +76,14 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700">
+
       <h3 className="text-2xl font-bold mb-6">Envíanos un mensajee</h3>
 
       <form
         name="contact"
         method="POST"
         data-netlify="true"
+
         data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
         className="space-y-6"
@@ -116,6 +130,7 @@ export default function ContactForm() {
         </div>
 
         <div>
+
           <label
             htmlFor="subject"
             className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
@@ -165,6 +180,31 @@ export default function ContactForm() {
             <option value="Especifique">Especifique</option>
           </select>
         </div>
+
+          <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+            Asunto
+          </label>
+          <select 
+            id="subject" 
+            name="subject" 
+            required 
+            disabled={isLoading}
+            value={selectedSubject}
+            onChange={(e) => setSelectedSubject(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors disabled:opacity-50"
+          >
+            <option value="">Selecciona un asunto</option>
+            <option value="Oferta Especial - Página Web + Dominio">Oferta Especial - Página Web + Dominio</option>
+            <option value="Pagina web">Página web</option>
+            <option value="aplicacion movil">Aplicación móvil</option>
+            <option value="E-Commerce">E-Commerce</option>
+            <option value="Solicitud de Funcionalidad">Solicitud de Funcionalidad</option>
+            <option value="Inteligencia artificial">Inteligencia artificial</option>
+            <option value="Consulta">Consulta</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
 
         <div>
           <label
