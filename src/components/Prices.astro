@@ -1,126 +1,87 @@
 ---
-const OFFER = {
-  name: "Página Web + Dominio",
-  price: "350.000",
-  originalPrice: "450.000",
-  description: "¡Oferta especial por tiempo limitado!",
-  features: [
-    "Diseño moderno y responsivo",
-    "Dominio .com por 1 año",
-    "Hosting premium incluido",
-    "Optimización SEO básica",
-    "Formulario de contacto",
-    "Integración con redes sociales",
-    "Hasta 5 secciones",
-    "Soporte técnico 24/7"
-  ]
-};
+const PRICES = [
+  {
+    name: "Landing Page",
+    price: "250.000 - 400.000",
+    description: "Diseño y desarrollo de landing page profesional con:",
+    features: [
+      "Diseño responsivo",
+      "Optimización SEO básica",
+      "Formulario de contacto",
+      "Integración con redes sociales",
+      "Hasta 5 secciones"
+    ]
+  },
+  {
+    name: "Sistema Web",
+    price: "500.000 - 1.000.000",
+    description: "Desarrollo de sistema web completo con:",
+    features: [
+      "Panel de administración",
+      "Base de datos",
+      "Autenticación de usuarios",
+      "Reportes y estadísticas",
+      "Soporte técnico"
+    ]
+  },
+  {
+    name: "E-commerce",
+    price: "800.000 - 1.500.000",
+    description: "Tienda online completa con:",
+    features: [
+      "Catálogo de productos",
+      "Sistema de pagos",
+      "Gestión de inventario",
+      "Panel de administración",
+      "Integración con pasarelas de pago"
+    ]
+  }
+];
 ---
 
-<section id="precios" class="section bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800 overflow-hidden py-20">
-  <div class="container mx-auto px-4">
+<section id="precios" class="section bg-slate-50 dark:bg-slate-900 overflow-hidden">
+  <div class="container">
     <div class="text-center max-w-3xl mx-auto mb-16" data-animate>
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">
-        <span class="text-primary-600 dark:text-primary-400">Oferta Especial</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Nuestros <span class="text-primary-600 dark:text-primary-400">Precios</span>
       </h2>
-      <p class="text-xl text-slate-700 dark:text-slate-300">
-        Lleva tu negocio al siguiente nivel con una presencia web profesional
+      <p class="text-lg text-slate-700 dark:text-slate-300">
+        Ofrecemos soluciones digitales adaptadas a tus necesidades
       </p>
     </div>
 
-    <div class="max-w-4xl mx-auto">
-      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-[1.02] relative" data-animate>
-        <!-- Decorative elements -->
-        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary-500 to-primary-600"></div>
-        <div class="absolute -top-4 -right-4 w-32 h-32 bg-primary-500/10 rounded-full blur-2xl"></div>
-        <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-primary-500/10 rounded-full blur-2xl"></div>
-
-        <div class="p-8 md:p-12">
-          <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-            <!-- Left side - Price and CTA -->
-            <div class="text-center md:text-left flex-1">
-              <div class="inline-block bg-primary-500/10 text-primary-600 dark:text-primary-400 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-pulse">
-                ¡Oferta por tiempo limitado!
-              </div>
-              
-              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-                {OFFER.name}
-              </h3>
-              
-              <div class="flex items-center justify-center md:justify-start gap-4 mb-6">
-                <span class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400">
-                  {OFFER.price} CLP
-                </span>
-                <span class="text-xl text-slate-400 line-through">
-                  {OFFER.originalPrice} CLP
-                </span>
-              </div>
-
-              <a 
-                href="/#contacto?subject=Oferta Especial - Página Web + Dominio" 
-                onclick="document.getElementById('subject').value='Oferta Especial - Página Web + Dominio'; document.getElementById('contacto').scrollIntoView({behavior: 'smooth'}); return false;"
-                class="inline-block w-full md:w-auto bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg shadow-md text-center"
-              >
-                ¡Aprovecha Ahora!
-              </a>
-            </div>
-
-            <!-- Right side - Features -->
-            <div class="flex-1">
-              <ul class="space-y-4">
-                {OFFER.features.map((feature) => (
-                  <li class="flex items-center group">
-                    <div class="w-8 h-8 rounded-full bg-primary-500/10 flex items-center justify-center mr-3 group-hover:bg-primary-500 transition-colors">
-                      <svg class="w-5 h-5 text-primary-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <span class="text-slate-700 dark:text-slate-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {PRICES.map((plan, index) => (
+        <div 
+          class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md border border-slate-100 dark:border-slate-700 flex flex-col"
+          data-animate
+          style={`animation-delay: ${index * 150}ms`}
+        >
+          <div class="mb-4">
+            <h3 class="text-2xl font-bold text-primary-600 dark:text-primary-400">{plan.name}</h3>
+            <p class="text-3xl font-bold mt-2">{plan.price} CLP</p>
           </div>
+          
+          <p class="text-slate-600 dark:text-slate-400 mb-4">
+            {plan.description}
+          </p>
+          
+          <ul class="space-y-3 mb-6 flex-grow">
+            {plan.features.map((feature) => (
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          
+          <button class="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+            Contactar
+          </button>
         </div>
-      </div>
+      ))}
     </div>
   </div>
-</section>
-
-<style>
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-  }
-
-  [data-animate] {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .section {
-    position: relative;
-  }
-
-  .section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent 70%);
-    pointer-events: none;
-  }
-</style> 
+</section> 
