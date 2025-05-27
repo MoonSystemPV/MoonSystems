@@ -38,6 +38,37 @@ export default function ContactForm() {
     }
   };
 
+  const getSelectStyle = () => {
+    const baseStyle = "w-full px-4 py-3 rounded-lg border-2 font-semibold transition-all duration-300 text-base";
+    
+    if (selectedSubject === "Oferta Especial - Página Web + Dominio") {
+      return `${baseStyle} bg-gradient-to-r from-green-400 to-emerald-500 border-green-500 text-black shadow-lg shadow-green-500/30`;
+    }
+    if (selectedSubject === "Pagina web") {
+      return `${baseStyle} bg-gradient-to-r from-blue-400 to-indigo-500 border-blue-500 text-black shadow-lg shadow-blue-500/30`;
+    }
+    if (selectedSubject === "aplicacion movil") {
+      return `${baseStyle} bg-gradient-to-r from-purple-400 to-violet-500 border-purple-500 text-black shadow-lg shadow-purple-500/30`;
+    }
+    if (selectedSubject === "E-Commerce") {
+      return `${baseStyle} bg-gradient-to-r from-orange-400 to-amber-500 border-orange-500 text-black shadow-lg shadow-orange-500/30`;
+    }
+    if (selectedSubject === "Solicitud de Funcionalidad") {
+      return `${baseStyle} bg-gradient-to-r from-pink-400 to-rose-500 border-pink-500 text-black shadow-lg shadow-pink-500/30`;
+    }
+    if (selectedSubject === "Inteligencia artificial") {
+      return `${baseStyle} bg-gradient-to-r from-cyan-400 to-blue-500 border-cyan-500 text-black shadow-lg shadow-cyan-500/30`;
+    }
+    if (selectedSubject === "Consulta") {
+      return `${baseStyle} bg-gradient-to-r from-teal-400 to-emerald-500 border-teal-500 text-black shadow-lg shadow-teal-500/30`;
+    }
+    if (selectedSubject === "Otro") {
+      return `${baseStyle} bg-gradient-to-r from-slate-400 to-gray-500 border-slate-500 text-black shadow-lg shadow-slate-500/30`;
+    }
+    
+    return `${baseStyle} bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white`;
+  };
+
   if (isSubmitted) {
     return (
       <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700">
@@ -191,7 +222,7 @@ export default function ContactForm() {
             disabled={isLoading}
             value={selectedSubject}
             onChange={(e) => setSelectedSubject(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors disabled:opacity-50"
+            className={getSelectStyle()}
           >
             <option value="">Selecciona un asunto</option>
             <option value="Oferta Especial - Página Web + Dominio">Oferta Especial - Página Web + Dominio</option>
