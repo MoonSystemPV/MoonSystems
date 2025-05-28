@@ -1,8 +1,64 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedSubject, setSelectedSubject] = useState("");
+
+  useEffect(() => {
+    // Función para obtener el parámetro subject
+    const getSubjectFromUrl = () => {
+      // Primero intentamos obtener del hash
+      const hash = window.location.hash;
+      if (hash.includes('?')) {
+        const hashParams = new URLSearchParams(hash.split('?')[1]);
+        const subject = hashParams.get('subject');
+        if (subject) {
+          return decodeURIComponent(subject);
+        }
+      }
+      
+      // Si no está en el hash, intentamos de la URL normal
+      const urlParams = new URLSearchParams(window.location.search);
+      const subject = urlParams.get('subject');
+      if (subject) {
+        return decodeURIComponent(subject);
+      }
+      
+      return null;
+    };
+
+    const subject = getSubjectFromUrl();
+    if (subject) {
+      setSelectedSubject(subject);
+    }
+  }, []);
+
+  // Escuchar cambios en el valor del select
+  useEffect(() => {
+    const subjectSelect = document.getElementById('subject');
+    if (subjectSelect) {
+      // Función para actualizar el estado
+      const updateState = () => {
+        setSelectedSubject(subjectSelect.value);
+      };
+
+      // Escuchar cambios directos en el select
+      subjectSelect.addEventListener('change', updateState);
+      
+      // Crear un observer para detectar cambios en el valor
+      const observer = new MutationObserver(updateState);
+      observer.observe(subjectSelect, { 
+        attributes: true,
+        attributeFilter: ['value']
+      });
+
+      return () => {
+        subjectSelect.removeEventListener('change', updateState);
+        observer.disconnect();
+      };
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,7 +120,7 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700">
-      <h3 className="text-2xl font-bold mb-6">Envíanos un mensajee</h3>
+      <h3 className="text-2xl font-bold mb-6">Envíanos un mensaje</h3>
 
       <form
         name="contact"
@@ -127,9 +183,12 @@ export default function ContactForm() {
             name="subject"
             required
             disabled={isLoading}
+            value={selectedSubject}
+            onChange={(e) => setSelectedSubject(e.target.value)}
             className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors disabled:opacity-50"
           >
             <option value="">Seleccione Servicio</option>
+            <option value="Oferta Especial - Página Web + Dominio">Oferta Especial - Página Web + Dominio</option>
             <option value="Pagina web">Pagina web</option>
             <option value="aplicacion movil">aplicacion movil</option>
             <option value="E-Commerce">E-Commerce</option>
@@ -144,27 +203,29 @@ export default function ContactForm() {
           </select>
         </div>
 
-
-        <div>
-          <label
-            htmlFor="subject"
-            className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
-          >
-            Nuestros planes
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            required
-            disabled={isLoading}
-            className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors disabled:opacity-50"
-          >
-            <option value="">Seleccione Plan</option>
-            <option value="Plan Basico">Plan Basico</option>
-            <option value="Plan Profesional">Plan Profesional</option>
-            <option value="Especifique">Especifique</option>
-          </select>
-        </div>
+        {/* Mostrar select de planes solo si NO es la oferta especial */}
+        {selectedSubject !== "Oferta Especial - Página Web + Dominio" && selectedSubject !== "" && (
+          <div>
+            <label
+              htmlFor="plan"
+              className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
+            >
+              Nuestros planes
+            </label>
+            <select
+              id="plan"
+              name="plan"
+              required
+              disabled={isLoading}
+              className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors disabled:opacity-50"
+            >
+              <option value="">Seleccione Plan</option>
+              <option value="Plan Basico">Plan Basico</option>
+              <option value="Plan Profesional">Plan Profesional</option>
+              <option value="Especifique">Especifique</option>
+            </select>
+          </div>
+        )}
 
         <div>
           <label
