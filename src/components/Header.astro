@@ -9,17 +9,17 @@ const NAV_ITEMS = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md py-4 shadow-sm">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md py-6 shadow-md">
   <div class="container flex items-center justify-between">
-    <a href="#" class="text-2xl font-bold text-primary-600 dark:text-primary-400 flex items-center gap-2">
-      <div class="h-12 w-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary-500">
+    <a href="#" class="text-3xl font-extrabold text-primary-600 dark:text-primary-400 flex items-center gap-3">
+      <div class="h-16 w-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary-500">
         <img src="/favicon/Logo.jpg" alt="MoonSystems Logo" class="h-full w-full object-cover" /> 
       </div>
       MoonSystems
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-6">
+    <nav class="hidden md:flex items-center gap-8 text-lg">
       {
         NAV_ITEMS.map(item => (
           <a 
@@ -30,13 +30,13 @@ const NAV_ITEMS = [
           </a>
         ))
       }
-      <a href="#contacto" class="btn btn-primary">
+      <a href="#contacto" class="btn btn-primary px-6 py-3 text-lg">
         Contáctanos
       </a>
     </nav>
 
     <!-- Mobile Navigation Toggle -->
-    <button id="mobile-menu-toggle" class="md:hidden text-slate-700 dark:text-slate-300" aria-label="Toggle menu">
+    <button id="mobile-menu-toggle" class="md:hidden text-slate-700 dark:text-slate-300 text-3xl" aria-label="Toggle menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>

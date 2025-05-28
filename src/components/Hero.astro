@@ -1,15 +1,19 @@
 ---
-// Hero con luna realista, estrellas y gradientes, usando Tailwind y animaciones CSS
+// Hero con luna realista, estrellas, parallax y animaciones avanzadas
 ---
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-  {/* Estrellas animadas */}
+  {/* Estrellas animadas y shooting stars */}
   <div class="absolute inset-0 z-0 pointer-events-none">
     <div class="stars absolute inset-0 w-full h-full">
       {[...Array(8)].map((_, i) => (
         <div class={`star absolute rounded-full bg-white opacity-70 animate-twinkle star${i+1}`}></div>
       ))}
-      <div class="shooting-star absolute"></div>
-      <div class="shooting-star absolute"></div>
+      <div class="shooting-star absolute shooting1"></div>
+      <div class="shooting-star absolute shooting2"></div>
+      {/* Falling stars */}
+      {[...Array(12)].map((_, i) => (
+        <div class={`falling-star absolute bg-white rounded-full opacity-60 falling${i+1}`}></div>
+      ))}
     </div>
   </div>
 
@@ -27,8 +31,8 @@
         Descubre nuestros sistemas web y aplicaciones personalizadas diseñados para optimizar tus operaciones y potenciar tu crecimiento.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8 animate-fadeInUp">
-        <a href="#servicios" class="btn btn-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400">Iniciar ahora</a>
-        <a href="#contacto" class="btn btn-secondary px-8 py-4 rounded-full font-bold text-lg border-2 border-cyan-400 text-cyan-400 bg-transparent hover:bg-cyan-900/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400">Contactar →</a>
+        <a href="#servicios" class="btn btn-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 ripple">Iniciar ahora</a>
+        <a href="#contacto" class="btn btn-secondary px-8 py-4 rounded-full font-bold text-lg border-2 border-cyan-400 text-cyan-400 bg-transparent hover:bg-cyan-900/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 ripple">Contactar →</a>
       </div>
       <div class="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start animate-fadeInUp">
         <div class="flex items-center gap-2 text-slate-300 text-sm">
@@ -42,9 +46,9 @@
         </div>
       </div>
     </div>
-    {/* Luna realista */}
+    {/* Luna realista con parallax */}
     <div class="flex-1 flex justify-center items-center animate-fadeInRight">
-      <div class="moon-container relative w-[320px] h-[320px] md:w-[400px] md:h-[400px]">
+      <div class="moon-parallax moon-container relative w-[320px] h-[320px] md:w-[400px] md:h-[400px]">
         {/* Órbitas */}
         <div class="orbit absolute border border-cyan-400/30 rounded-full w-[380px] h-[380px] top-[-30px] left-[-30px] animate-orbit"></div>
         <div class="orbit absolute border border-cyan-400/20 rounded-full w-[420px] h-[420px] top-[-50px] left-[-50px] animate-orbit-reverse"></div>
@@ -52,17 +56,22 @@
         <div class="particle absolute w-2 h-2 bg-cyan-400 rounded-full shadow-lg top-0 left-1/2 -translate-x-1/2 animate-pulse"></div>
         <div class="particle absolute w-2 h-2 bg-cyan-400 rounded-full shadow-lg bottom-0 left-1/2 -translate-x-1/2 animate-pulse delay-1000"></div>
         <div class="particle absolute w-2 h-2 bg-cyan-400 rounded-full shadow-lg top-1/2 right-0 -translate-y-1/2 animate-pulse delay-500"></div>
-        {/* Luna */}
+        {/* Luna realista mejorada */}
         <div class="moon relative w-full h-full rounded-full bg-gradient-to-br from-slate-100 via-slate-300 to-slate-400 shadow-2xl animate-moonGlow">
-          {/* Cráteres */}
-          <div class="crater absolute w-10 h-10 bg-slate-400/40 rounded-full top-[15%] left-[20%]"></div>
-          <div class="crater absolute w-6 h-6 bg-slate-400/30 rounded-full top-[30%] right-[25%]"></div>
-          <div class="crater absolute w-12 h-12 bg-slate-400/50 rounded-full bottom-[20%] left-[15%]"></div>
-          <div class="crater absolute w-5 h-5 bg-slate-400/30 rounded-full bottom-[35%] right-[30%]"></div>
-          <div class="crater absolute w-8 h-8 bg-slate-400/40 rounded-full top-[25%] right-[15%]"></div>
-          <div class="crater absolute w-4 h-4 bg-slate-400/20 rounded-full top-[45%] left-[35%]"></div>
+          {/* Sombra de la luna */}
+          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-transparent via-transparent to-slate-900/40"></div>
+          {/* Cráteres grandes */}
+          <div class="crater absolute w-12 h-12 bg-slate-400/40 rounded-full top-[12%] left-[18%] shadow-inner"></div>
+          <div class="crater absolute w-8 h-8 bg-slate-400/30 rounded-full top-[28%] right-[22%] shadow-inner"></div>
+          <div class="crater absolute w-16 h-16 bg-slate-400/50 rounded-full bottom-[18%] left-[12%] shadow-inner"></div>
+          {/* Cráteres pequeños */}
+          <div class="crater absolute w-5 h-5 bg-slate-400/30 rounded-full bottom-[32%] right-[28%] shadow-inner"></div>
+          <div class="crater absolute w-7 h-7 bg-slate-400/40 rounded-full top-[22%] right-[12%] shadow-inner"></div>
+          <div class="crater absolute w-4 h-4 bg-slate-400/20 rounded-full top-[44%] left-[32%] shadow-inner"></div>
           {/* Brillo interno */}
           <div class="moon-shine absolute top-3 left-3 right-3 bottom-3 rounded-full bg-gradient-to-br from-white/30 to-transparent"></div>
+          {/* Brillo extra */}
+          <div class="absolute top-10 left-10 w-24 h-24 rounded-full bg-white/10 blur-2xl"></div>
         </div>
       </div>
     </div>
@@ -82,8 +91,8 @@
     .star6 { width: 8px; height: 8px; top: 40%; left: 90%; animation-delay: 2.5s; }
     .star7 { width: 12px; height: 12px; top: 60%; left: 50%; animation-delay: 3s; }
     .star8 { width: 8px; height: 8px; top: 10%; left: 60%; animation-delay: 0.8s; }
-    .shooting-star { width: 2px; height: 2px; background: linear-gradient(45deg, #fff, transparent); border-radius: 50%; top: 20%; left: 80%; animation: shoot1 4s linear infinite; }
-    .shooting-star:last-child { top: 60%; left: 70%; animation: shoot2 6s linear infinite 3s; }
+    .shooting1 { top: 20%; left: 80%; animation: shoot1 4s linear infinite; }
+    .shooting2 { top: 60%; left: 70%; animation: shoot2 6s linear infinite 3s; }
     @keyframes twinkle { 0%,100%{opacity:0.3;transform:scale(1);} 50%{opacity:1;transform:scale(1.2);} }
     @keyframes shoot1 { 0%{transform:translateX(0) translateY(0);opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{transform:translateX(-200px) translateY(200px);opacity:0;} }
     @keyframes shoot2 { 0%{transform:translateX(0) translateY(0);opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{transform:translateX(-300px) translateY(300px);opacity:0;} }
@@ -98,5 +107,72 @@
     @keyframes slideInLeft { from{opacity:0;transform:translateX(-50px);} to{opacity:1;transform:translateX(0);} }
     @keyframes slideInRight { from{opacity:0;transform:translateX(50px);} to{opacity:1;transform:translateX(0);} }
     @keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+    /* Falling stars */
+    .falling-star { width: 2px; height: 8px; background: linear-gradient(180deg, #fff, transparent); opacity: 0.7; }
+    .falling1 { left: 10%; animation: fall 5s linear infinite; animation-delay: 0s; }
+    .falling2 { left: 20%; animation: fall 7s linear infinite; animation-delay: 2s; }
+    .falling3 { left: 30%; animation: fall 6s linear infinite; animation-delay: 1s; }
+    .falling4 { left: 40%; animation: fall 8s linear infinite; animation-delay: 3s; }
+    .falling5 { left: 50%; animation: fall 5.5s linear infinite; animation-delay: 1.5s; }
+    .falling6 { left: 60%; animation: fall 7.5s linear infinite; animation-delay: 2.5s; }
+    .falling7 { left: 70%; animation: fall 6.5s linear infinite; animation-delay: 0.5s; }
+    .falling8 { left: 80%; animation: fall 8.5s linear infinite; animation-delay: 4s; }
+    .falling9 { left: 25%; animation: fall 7.2s linear infinite; animation-delay: 2.2s; }
+    .falling10 { left: 55%; animation: fall 6.8s linear infinite; animation-delay: 1.8s; }
+    .falling11 { left: 75%; animation: fall 7.8s linear infinite; animation-delay: 3.8s; }
+    .falling12 { left: 90%; animation: fall 5.8s linear infinite; animation-delay: 0.8s; }
+    @keyframes fall {
+      0% { top: -10px; opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { top: 100vh; opacity: 0; }
+    }
   </style>
+  <script is:inline>
+    // Parallax para luna y estrellas
+    if (typeof window !== 'undefined') {
+      document.addEventListener('mousemove', (e) => {
+        const mouseX = (e.clientX / window.innerWidth) - 0.5;
+        const mouseY = (e.clientY / window.innerHeight) - 0.5;
+        const moon = document.querySelector('.moon-parallax');
+        const stars = document.querySelectorAll('.star');
+        if (moon) moon.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
+        stars.forEach((star, index) => {
+          const speed = (index + 1) * 2;
+          star.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
+        });
+      });
+      // Ripple en botones
+      document.querySelectorAll('.ripple').forEach(button => {
+        button.addEventListener('click', function(e) {
+          const ripple = document.createElement('span');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}px;
+            top: ${y}px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+            z-index: 10;
+          `;
+          this.style.position = 'relative';
+          this.style.overflow = 'hidden';
+          this.appendChild(ripple);
+          setTimeout(() => ripple.remove(), 600);
+        });
+      });
+      // Keyframes para ripple
+      const style = document.createElement('style');
+      style.textContent = `@keyframes ripple { to { transform: scale(2); opacity: 0; } }`;
+      document.head.appendChild(style);
+    }
+  </script>
 </section> 
