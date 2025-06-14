@@ -37,7 +37,7 @@ MoonSystems es una plataforma web moderna y elegante para una empresa de desarro
 │   │   ├── Hero.astro    # Sección principal
 │   │   ├── Services.astro # Servicios ofrecidos
 │   │   ├── Projects.astro # Proyectos destacados
-│   │   ├── Precios.astro # Precios ofrecidos
+│   │   ├── Precios.astro # Precios ofrecidos actualizar
 │   │   ├── Founders.astro # Información sobre fundadores
 │   │   ├── Faq.astro     # Preguntas frecuentes
 │   │   ├── Contact.astro # Formulario de contacto
