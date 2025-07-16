@@ -34,9 +34,24 @@ const {
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background-color: #000;
+				background:
+					linear-gradient(120deg, rgba(0,224,255,0.15) 0%, rgba(142,197,252,0.10) 50%, rgba(224,195,252,0.15) 100%),
+					#000;
 				z-index: -1000;
 				overflow: hidden;
+			}
+
+			.starfield::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				width: 80vw;
+				height: 60vh;
+				background: radial-gradient(circle, rgba(0,224,255,0.18) 0%, rgba(0,0,0,0) 70%);
+				z-index: -1;
+				pointer-events: none;
 			}
 
 			.content-container {
